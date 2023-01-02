@@ -1,29 +1,27 @@
 
-using TASK7.Models;
+using TASK8.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 
-namespace TASK7.Services
+namespace TASK8.Services
 {
-    public interface ITripRepository
+    public interface IDoctorRepository
     {
 
 
 
-        public IEnumerable<Client> GetAllClients();
-        // public bool ClientAlreadyExist(string Pesel);
+        public Task<IEnumerable<Doctor>> GetAllDoctors();
 
-        public Task<Client> AddNewClient(InputForm InputForm);
+        public Task<Doctor> GetDoctorByID(int idDoctor);
 
-        public bool IsDuplicateBooking(int idClient, int IdTrip);
-        public bool TripExists(int IdTrip);
-        public Task<ClientTrip> AddClientToTrip(int clientId, InputForm inputForm);
+        public Task<Doctor> AddDoctor(DoctorForm form);
+        public Task<Doctor> UpdateDoctor(DoctorForm form);
+        public Task<IEnumerable<Doctor>> DeleteDoctor(int idDoctor);
 
-        public Task<IEnumerable<object>> GetAllTrips();
-        public bool ClientHasTrips(int idClient);
-        public bool ClientExists(int idClient);
-        public Task DeleteClientyID(int idClient);
+
+
+
 
     }
 }

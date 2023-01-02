@@ -1,8 +1,17 @@
+using TASK8.Services;
+using TASK8.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddSingleton<IDoctorRepository, DoctorRepository>();
+builder.Services.AddSingleton<MainDbContext>();
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton<Microsoft.Extensions.Logging.ILogger>(provider =>
+provider.GetRequiredService<Microsoft.Extensions.Logging.ILogger<TASK8.Controllers.DoctorController>>());
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

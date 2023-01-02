@@ -5,13 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 namespace TASK8.Models;
 
-public partial class Context : DbContext
+public partial class MainDbContext : DbContext
 {
-    public Context()
+    public MainDbContext()
     {
     }
 
-    public Context(DbContextOptions<Context> options)
+    public MainDbContext(DbContextOptions<MainDbContext> options)
         : base(options)
     {
     }
