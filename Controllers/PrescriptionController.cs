@@ -38,6 +38,25 @@ public class PrescriptionController : ControllerBase
     }
 
 
+    // Temp API to populate database
+    [Route("api/prescription/fillDatabase")]
+    [HttpPost()]
+    public async Task<IActionResult> FillDataBase(int idPrescription)
+    {
+        // Returns prescription details
+
+        try
+        {
+            _prescriptionRepository.PopulateDatabase();
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(string.Format("Something went wrong while populating database", ex.Message));
+            return NotFound(string.Format("Something went wrong while populating database", ex.Message));
+        }
+
+    }
 
 
 }

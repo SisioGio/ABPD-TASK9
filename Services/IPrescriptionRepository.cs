@@ -13,7 +13,7 @@ namespace TASK8.Services
 
         public Task<PrescriptionDetails> GetPrescriptionDetails(int idPrescription);
 
-
+        public void PopulateDatabase();
 
 
 
