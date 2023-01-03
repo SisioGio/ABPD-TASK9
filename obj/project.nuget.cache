@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "My7JinaaOHC7pxiTS2GZTOwij0bnzVwpcA9Zk2ytUmfe+2mWg99UwaKzshcQNKX+Xy7SdTgvIZ/BXkmFxpQp4Q==",
+  "dgSpecHash": "1Gc9g6KRLCG6uzs+OETb2Al3bZIJiRsmaaYPfA3MHSfwJBL1AZqUjyvx4WUs/XvTcUln+cS160kw9H8QVuW7OA==",
   "success": true,
-  "projectFilePath": "/home/alessio/Documents/APBD/TASK8/TASK8.csproj",
+  "projectFilePath": "/home/alessio/Documents/APBD/TASK9/TASK9.csproj",
   "expectedPackageFiles": [
     "/home/alessio/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/home/alessio/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",

@@ -3916,11 +3916,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alessio/Documents/APBD/TASK8/TASK8.csproj",
-      "projectName": "TASK8",
-      "projectPath": "/home/alessio/Documents/APBD/TASK8/TASK8.csproj",
+      "projectUniqueName": "/home/alessio/Documents/APBD/TASK9/TASK9.csproj",
+      "projectName": "TASK9",
+      "projectPath": "/home/alessio/Documents/APBD/TASK9/TASK9.csproj",
       "packagesPath": "/home/alessio/.nuget/packages/",
-      "outputPath": "/home/alessio/Documents/APBD/TASK8/obj/",
+      "outputPath": "/home/alessio/Documents/APBD/TASK9/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/alessio/.nuget/NuGet/NuGet.Config"
