@@ -20,7 +20,9 @@ namespace TASK8.Services
         {
 
 
+            // API for adding new entries into DB
 
+            // Remove all data
             foreach (PrescriptionMedicament pmed in _db.PrescriptionMedicament)
             {
                 _db.Remove(pmed);
@@ -52,7 +54,7 @@ namespace TASK8.Services
 
             await _db.SaveChangesAsync();
 
-
+            // Enter new data
             Doctor doc1 = new Doctor { FirstName = "Doc_Name_1", LastName = "Doc_Surname_1", Email = "Doc_Email_1@gmail.com" };
             _db.Add(doc1);
             Doctor doc2 = new Doctor { FirstName = "Doc_Name_2", LastName = "Doc_Surname_2", Email = "Doc_Email_2@gmail.com" };
