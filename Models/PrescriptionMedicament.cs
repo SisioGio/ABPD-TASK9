@@ -9,7 +9,7 @@ public partial class PrescriptionMedicament
 {
 
 
-    // public int IdPrescriptionMedicament { get; set; }
+    // Used to store the prescription details on api /api/prescription/{idPrescription}
     public int Dose { get; set; }
 
     public int IdPrescription { get; set; }

@@ -39,7 +39,8 @@ public class DoctorController : ControllerBase
         }
         catch (Exception ex)
         {
-            return NotFound(string.Format("Doctor with ID = {0} does not exist", idDoctor));
+            _logger.LogError(string.Format("Something went wrong while retrieving data of doctor with ID = {0}", idDoctor));
+            return NotFound(string.Format("Something went wrong while retrieving data of doctor with ID = {0}", idDoctor));
         }
 
     }
@@ -50,7 +51,6 @@ public class DoctorController : ControllerBase
     {
         try
         {
-
             var result = await _doctorRepository.AddDoctor(form);
 
             return Ok(result);

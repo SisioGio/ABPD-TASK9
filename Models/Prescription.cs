@@ -19,11 +19,11 @@ public partial class Prescription
 
 
 
-    // [ForeignKey("IdDoctor")]
+
     public virtual Doctor Doctor { get; set; } = null!;
-    // [ForeignKey("IdPatient")]
+
     public virtual Patient Patient { get; set; } = null!;
-    // public virtual ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; } = new List<PrescriptionMedicament>();
+    public virtual ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; } = new List<PrescriptionMedicament>();
 
 
 }
