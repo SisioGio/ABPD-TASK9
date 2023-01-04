@@ -1,10 +1,10 @@
 
-using TASK8.Models;
+using TASK9.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 
-namespace TASK8.Services
+namespace TASK9.Services
 {
     public interface IPrescriptionRepository
     {

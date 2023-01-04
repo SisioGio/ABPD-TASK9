@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using TASK8.Models;
-using TASK8.Services;
+using TASK9.Models;
+using TASK9.Services;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-namespace TASK8.Controllers;
+using Microsoft.AspNetCore.Authorization;
+namespace TASK9.Controllers;
 
 [ApiController]
 
@@ -16,7 +17,7 @@ public class DoctorController : ControllerBase
         _doctorRepository = doctorRepository;
         _logger = logger;
     }
-
+    [Authorize]
     [Route("api/doctor/all")]
     [HttpGet()]
     public async Task<IActionResult> GetAllDoctors()
@@ -25,7 +26,7 @@ public class DoctorController : ControllerBase
 
         return Ok(result);
     }
-
+    [Authorize]
     [Route("api/doctor/{idDoctor}")]
     [HttpGet()]
     public async Task<IActionResult> GetDoctorByID(int idDoctor)
@@ -44,7 +45,7 @@ public class DoctorController : ControllerBase
         }
 
     }
-
+    [Authorize]
     [Route("api/doctor")]
     [HttpPost()]
     public async Task<IActionResult> AddDoctor(DoctorForm form)
@@ -62,7 +63,7 @@ public class DoctorController : ControllerBase
         }
 
     }
-
+    [Authorize]
     [Route("api/doctor/{idDoctor}")]
     [HttpDelete()]
     public async Task<IActionResult> DeleteDoctor(int idDoctor)
@@ -81,7 +82,7 @@ public class DoctorController : ControllerBase
         }
 
     }
-
+    [Authorize]
     [Route("api/doctor")]
     [HttpPut()]
     public async Task<IActionResult> UpdateDoctor(DoctorForm form)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-namespace TASK8.Models;
+namespace TASK9.Models;
 
 public partial class MainDbContext : DbContext
 {
@@ -21,7 +21,7 @@ public partial class MainDbContext : DbContext
     public virtual DbSet<Patient> Patient { get; set; }
     public virtual DbSet<Prescription> Prescription { get; set; }
     public virtual DbSet<PrescriptionMedicament> PrescriptionMedicament { get; set; }
-
+    public virtual DbSet<User> User { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -39,7 +39,19 @@ public partial class MainDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<User>(entity =>
+             {
+                 entity.HasKey(e => e.IdUser);
+                 entity.Property(e => e.IdUser).ValueGeneratedOnAdd();
 
+                 entity.ToTable("User");
+                 entity.Property(e => e.Username).HasMaxLength(100).IsRequired();
+                 entity.Property(e => e.Password).HasMaxLength(300).IsRequired();
+                 entity.Property(e => e.RefreshToken).IsRequired(false);
+                 entity.Property(e => e.Salt).IsRequired(false);
+                 entity.Property(e => e.RefreshTokenExpirationDate).HasColumnType("datetime");
+
+             });
         modelBuilder.Entity<Doctor>(entity =>
         {
             entity.HasKey(e => e.IdDoctor);

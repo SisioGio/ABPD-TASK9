@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TASK8.Models;
+using TASK9.Models;
 
 #nullable disable
 
-namespace TASK8.Migrations
+namespace TASK9.Migrations
 {
     [DbContext(typeof(MainDbContext))]
     [Migration("20230102220954_AddedBaseTables")]

@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using TASK8.Models;
-using TASK8.Services;
+using TASK9.Models;
+using TASK9.Services;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-namespace TASK8.Controllers;
+using Microsoft.AspNetCore.Authorization;
+namespace TASK9.Controllers;
 
 [ApiController]
 
@@ -16,7 +17,7 @@ public class PrescriptionController : ControllerBase
         _prescriptionRepository = prescriptionRepository;
         _logger = logger;
     }
-
+    [Authorize]
     [Route("api/prescription/{idPrescription}")]
     [HttpGet()]
     public async Task<IActionResult> GetPrescriptionDetails(int idPrescription)
@@ -39,6 +40,7 @@ public class PrescriptionController : ControllerBase
 
 
     // Temp API to populate database
+    [Authorize]
     [Route("api/prescription/fillDatabase")]
     [HttpPost()]
     public async Task<IActionResult> FillDataBase(int idPrescription)

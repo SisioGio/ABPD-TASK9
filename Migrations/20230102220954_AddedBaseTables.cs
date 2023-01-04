@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace TASK8.Migrations
+namespace TASK9.Migrations
 {
     /// <inheritdoc />
     public partial class AddedBaseTables : Migration

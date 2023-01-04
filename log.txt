@@ -1,0 +1,10 @@
+00:06:42 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:50 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:51 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:52 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:53 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:53 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+00:06:54 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+13:48:47 Wednesday, 4 January 2023 - Object reference not set to an instance of an object.
+15:39:32 Wednesday, 4 January 2023 - Invalid column name 'RefreshTokenExpirationDate'.
+17:57:28 Wednesday, 4 January 2023 - IDX10223: Lifetime validation failed. The token is expired. ValidTo: '04/01/2023 16:50:44', Current time: '04/01/2023 16:57:28'.

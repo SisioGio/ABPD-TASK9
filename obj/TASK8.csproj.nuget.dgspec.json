@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/home/alessio/Documents/APBD/TASK9/TASK8.csproj": {}
+    "/home/alessio/Documents/APBD/TASK9/TASK9.csproj": {}
   },
   "projects": {
-    "/home/alessio/Documents/APBD/TASK9/TASK8.csproj": {
+    "/home/alessio/Documents/APBD/TASK9/TASK9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/alessio/Documents/APBD/TASK9/TASK8.csproj",
-        "projectName": "TASK8",
-        "projectPath": "/home/alessio/Documents/APBD/TASK9/TASK8.csproj",
+        "projectUniqueName": "/home/alessio/Documents/APBD/TASK9/TASK9.csproj",
+        "projectName": "TASK9",
+        "projectPath": "/home/alessio/Documents/APBD/TASK9/TASK9.csproj",
         "packagesPath": "/home/alessio/.nuget/packages/",
         "outputPath": "/home/alessio/Documents/APBD/TASK9/obj/",
         "projectStyle": "PackageReference",

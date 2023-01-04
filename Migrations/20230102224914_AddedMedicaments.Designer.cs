@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TASK8.Models;
+using TASK9.Models;
 
 #nullable disable
 
-namespace TASK8.Migrations
+namespace TASK9.Migrations
 {
     [DbContext(typeof(MainDbContext))]
     [Migration("20230102224914_AddedMedicaments")]
@@ -25,7 +25,7 @@ namespace TASK8.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TASK8.Models.Doctor", b =>
+            modelBuilder.Entity("TASK9.Models.Doctor", b =>
                 {
                     b.Property<int>("IdDoctor")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace TASK8.Migrations
                     b.ToTable("Doctor", (string)null);
                 });
 
-            modelBuilder.Entity("TASK8.Models.Medicament", b =>
+            modelBuilder.Entity("TASK9.Models.Medicament", b =>
                 {
                     b.Property<int>("IdMedicament")
                         .ValueGeneratedOnAdd()
@@ -81,7 +81,7 @@ namespace TASK8.Migrations
                     b.ToTable("Medicament", (string)null);
                 });
 
-            modelBuilder.Entity("TASK8.Models.Patient", b =>
+            modelBuilder.Entity("TASK9.Models.Patient", b =>
                 {
                     b.Property<int>("IdPatient")
                         .ValueGeneratedOnAdd()
@@ -108,7 +108,7 @@ namespace TASK8.Migrations
                     b.ToTable("Patient", (string)null);
                 });
 
-            modelBuilder.Entity("TASK8.Models.Prescription", b =>
+            modelBuilder.Entity("TASK9.Models.Prescription", b =>
                 {
                     b.Property<int>("IdPrescription")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace TASK8.Migrations
                     b.ToTable("Prescription", (string)null);
                 });
 
-            modelBuilder.Entity("TASK8.Models.PrescriptionMedicament", b =>
+            modelBuilder.Entity("TASK9.Models.PrescriptionMedicament", b =>
                 {
                     b.Property<int>("IdPrescription")
                         .HasColumnType("int");
@@ -160,14 +160,14 @@ namespace TASK8.Migrations
                     b.ToTable("PrescriptionMedicament", (string)null);
                 });
 
-            modelBuilder.Entity("TASK8.Models.Prescription", b =>
+            modelBuilder.Entity("TASK9.Models.Prescription", b =>
                 {
-                    b.HasOne("TASK8.Models.Doctor", "Doctor")
+                    b.HasOne("TASK9.Models.Doctor", "Doctor")
                         .WithMany("Prescriptions")
                         .HasForeignKey("IdDoctor")
                         .IsRequired();
 
-                    b.HasOne("TASK8.Models.Patient", "Patient")
+                    b.HasOne("TASK9.Models.Patient", "Patient")
                         .WithMany("ClientPrescriptions")
                         .HasForeignKey("IdPatient")
                         .IsRequired();
@@ -177,14 +177,14 @@ namespace TASK8.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("TASK8.Models.PrescriptionMedicament", b =>
+            modelBuilder.Entity("TASK9.Models.PrescriptionMedicament", b =>
                 {
-                    b.HasOne("TASK8.Models.Medicament", "Medicament")
+                    b.HasOne("TASK9.Models.Medicament", "Medicament")
                         .WithMany("PrescriptionMedicament")
                         .HasForeignKey("IdMedicament")
                         .IsRequired();
 
-                    b.HasOne("TASK8.Models.Prescription", "Prescription")
+                    b.HasOne("TASK9.Models.Prescription", "Prescription")
                         .WithMany()
                         .HasForeignKey("IdPrescription")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -195,17 +195,17 @@ namespace TASK8.Migrations
                     b.Navigation("Prescription");
                 });
 
-            modelBuilder.Entity("TASK8.Models.Doctor", b =>
+            modelBuilder.Entity("TASK9.Models.Doctor", b =>
                 {
                     b.Navigation("Prescriptions");
                 });
 
-            modelBuilder.Entity("TASK8.Models.Medicament", b =>
+            modelBuilder.Entity("TASK9.Models.Medicament", b =>
                 {
                     b.Navigation("PrescriptionMedicament");
                 });
 
-            modelBuilder.Entity("TASK8.Models.Patient", b =>
+            modelBuilder.Entity("TASK9.Models.Patient", b =>
                 {
                     b.Navigation("ClientPrescriptions");
                 });
