@@ -17,15 +17,20 @@ public class DoctorController : ControllerBase
         _doctorRepository = doctorRepository;
         _logger = logger;
     }
+
+    // Retrieve all doctors data
     [Authorize]
     [Route("api/doctor/all")]
     [HttpGet()]
     public async Task<IActionResult> GetAllDoctors()
     {
+
         var result = await _doctorRepository.GetAllDoctors();
 
         return Ok(result);
     }
+
+    // Retrieve doctor by ID
     [Authorize]
     [Route("api/doctor/{idDoctor}")]
     [HttpGet()]
@@ -45,6 +50,9 @@ public class DoctorController : ControllerBase
         }
 
     }
+
+    // Create a new doctor
+
     [Authorize]
     [Route("api/doctor")]
     [HttpPost()]
@@ -63,6 +71,8 @@ public class DoctorController : ControllerBase
         }
 
     }
+
+    // Delete a doctor from db
     [Authorize]
     [Route("api/doctor/{idDoctor}")]
     [HttpDelete()]
@@ -82,6 +92,8 @@ public class DoctorController : ControllerBase
         }
 
     }
+
+    // Update thhe doctor data
     [Authorize]
     [Route("api/doctor")]
     [HttpPut()]

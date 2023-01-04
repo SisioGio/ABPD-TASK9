@@ -9,7 +9,7 @@ namespace TASK9.Services
     public class PrescriptionRepository : IPrescriptionRepository
     {
 
-
+        // Methods to work with the Prescription  table
         public static MainDbContext _db;
         public PrescriptionRepository(MainDbContext db)
         {

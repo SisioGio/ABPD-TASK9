@@ -9,7 +9,7 @@ namespace TASK9.Services
     public class DoctorRepository : IDoctorRepository
     {
 
-
+        // Methods to work with the Doctor table
         public static MainDbContext _db;
         public DoctorRepository(MainDbContext db)
         {

@@ -17,6 +17,8 @@ public class PrescriptionController : ControllerBase
         _prescriptionRepository = prescriptionRepository;
         _logger = logger;
     }
+
+    // Get prescription details
     [Authorize]
     [Route("api/prescription/{idPrescription}")]
     [HttpGet()]

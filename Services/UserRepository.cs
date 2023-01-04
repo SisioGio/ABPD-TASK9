@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 
 namespace TASK9.Services
 {
+
+    // Methods to work with the User table
     public class UserRepository : IUserRepository
     {
 

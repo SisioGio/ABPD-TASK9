@@ -13,9 +13,14 @@ namespace TASK9.Services;
 
 public class TokenService : ITokenService
 {
+    IConfiguration _configuration;
+    public TokenService(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
     public string GenerateAccessToken(IEnumerable<Claim> userClaim)
     {
-        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sfsdfsdfdsfsdfsdfsdfsddfaefwewmjcndsnsdjfsdfsdbnhsbvbhcxi"));
+        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["IssuerSigningKey:Key"]));
         SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 
@@ -43,21 +48,21 @@ public class TokenService : ITokenService
     {
         var tokenValidationParameters = new TokenValidationParameters
         {
-            ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
+            ValidateAudience = false,
             ValidateIssuer = false,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sfsdfsdfdsfsdfsdfsdfsddfaefwewmjcndsnsdjfsdfsdbnhsbvbhcxi")),
-            ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["IssuerSigningKey:Key"])),
+            ValidateLifetime = false
         };
 
-        Console.WriteLine("Getting principal");
+
 
 
         var tokenHandler = new JwtSecurityTokenHandler();
         SecurityToken securityToken;
-        Console.WriteLine("Validating principal...");
+
         var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
-        Console.WriteLine("Validating jwtSecurityToken...");
+
         var jwtSecurityToken = securityToken as JwtSecurityToken;
         if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
             throw new SecurityTokenException("Invalid token");

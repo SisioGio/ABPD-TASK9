@@ -12,8 +12,12 @@ builder.Services.AddSingleton<IDoctorRepository, DoctorRepository>();
 builder.Services.AddSingleton<IPrescriptionRepository, PrescriptionRepository>();
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<MainDbContext>();
+
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddControllers();
+
+
+
 
 builder.Services.AddSingleton<Microsoft.Extensions.Logging.ILogger>(provider =>
 provider.GetRequiredService<Microsoft.Extensions.Logging.ILogger<TASK9.Controllers.DoctorController>>());
@@ -45,7 +49,7 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.FromSeconds(30),
         ValidIssuer = "http://localhost:5227",
         ValidAudience = "http://localhost:5227",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sfsdfsdfdsfsdfsdfsdfsddfaefwewmjcndsnsdjfsdfsdbnhsbvbhcxi"))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["IssuerSigningKey:Key"]))
 
 
 

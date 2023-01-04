@@ -20,6 +20,8 @@ public class AccountsController : ControllerBase
         _logger = logger;
     }
 
+
+    // Login for existing users - It generates an access token and a refresh token ( stored in the db )
     [AllowAnonymous]
     [Route("api/user/login")]
     [HttpPost()]
@@ -40,14 +42,10 @@ public class AccountsController : ControllerBase
             new Claim(ClaimTypes.Role,"user")
         };
 
-
-
         string AccessToken = _tokenService.GenerateAccessToken(userClaim);
         string refreshToken = _tokenService.GenerateRefreshToken();
 
         await _UserRepository.AssignRefreshTokenDat(user, refreshToken);
-
-
 
         return Ok(new
         {
@@ -58,7 +56,7 @@ public class AccountsController : ControllerBase
     }
 
 
-
+    // Register new user -- Password is hashed and salted ( salt and password are stored in the db )
     [AllowAnonymous]
     [Route("api/user/register")]
     [HttpPost()]
@@ -76,7 +74,7 @@ public class AccountsController : ControllerBase
     }
 
 
-
+    // Testing secret endpoint
     [Authorize]
     [Route("api/user/secret")]
     [HttpPost()]

@@ -27,6 +27,8 @@ public class TokenController : ControllerBase
         _logger = logger;
     }
 
+
+    // Generates a new refresh token
     [AllowAnonymous]
     [HttpPost]
     [Route("api/token/refresh")]
@@ -34,13 +36,15 @@ public class TokenController : ControllerBase
     {
         if (token is null)
             return BadRequest("Token is null");
-
+        // Get access/refresh token from client
         string accessToken = token.AccessToken;
         string refreshToken = token.RefreshToken;
-
+        // Get 'body' of the hashed access token
         var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
         var username = principal.Identity.Name;
+        // Get user from db by username
         User user = await _UserRepository.GetUserByUsername(username);
+        // Check if all data are correct ( username, refresh token and expiration date )
         if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpirationDate <= DateTime.Now)
         {
             if (user.RefreshToken != refreshToken) { Console.WriteLine("Refresh token does not match"); };
@@ -49,11 +53,11 @@ public class TokenController : ControllerBase
             return BadRequest("Invalid client request");
         }
 
-
+        // Generate new access/refresh token
         string newAccessToken = _tokenService.GenerateAccessToken(principal.Claims);
         string newRefreshToken = _tokenService.GenerateRefreshToken();
-        Console.WriteLine(newRefreshToken);
 
+        // Assign new refresh token and due date to the user ( save in db )
         _UserRepository.AssignRefreshTokenDat(user, newRefreshToken);
         Console.WriteLine(user.RefreshToken);
         Console.WriteLine(user.RefreshTokenExpirationDate);
